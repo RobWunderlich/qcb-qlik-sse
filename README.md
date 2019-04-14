@@ -1,6 +1,6 @@
 # qcb-qlik-sse
 
-An implementation of [qlik-sse](https://github.com/miralemd/qlik-sse), a Qlik Server Side Extension written in Javascript. The aim pf this impelmentation is to provide for adding functions through a plugin directory. 
+An implementation of [qlik-sse](https://github.com/miralemd/qlik-sse), a Qlik Server Side Extension written in Javascript. The aim of this impelmentation is to allow for adding functions through a plugin directory. 
 
 ## Project Structure
 
