@@ -10,7 +10,7 @@ const functionConfig = {
   }
   /**
  * Sums the value of a field. Same as Qlik Sum(), but I needed an example of creating an Aggregation function. 
- * @function RegexTest
+ * @function Sum
  * @param {string} fieldname 
  * @returns {number} 
  */

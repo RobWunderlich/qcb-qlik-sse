@@ -13,7 +13,7 @@ const functionConfig = {
   }
 /**
  * Reverses the characters in a string.
- * @function SortList
+ * @function Reverse
  * @param {string} str
  * @returns {string}   
  * @example

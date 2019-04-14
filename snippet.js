@@ -1,16 +1,11 @@
 
-console.log(sortList('fe, zd, ab'))
-function sortList (arg) {
-    let s = arg.split(",")
-    let m = s.map((x)=>x.trim())
-     m.sort()
-    return m.join(", ")
+console.log(sortList('John, Zack, Aaron'))
+function sortList (arg, sep=',') {
+    // let s = arg.split(sep)
+    // let m = s.map((x)=>x.trim())
+    //  m.sort()
+    // return m.join(sep)
+    return arg.split(sep).map((x)=>x.trim()).sort().join(sep)
 }
-var str = 'OrderId,\n'
-str += 'OrderDate,\n'
-str += 'CustomerId'
 
-var x = str.split(",\n").join("\n,")
-console.log(x)
-
-console.log(str)
+console.log('Hello World'.split("").reverse().join(""))

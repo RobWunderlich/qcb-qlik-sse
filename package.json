@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "grpc": "^1.14.1",
+    "ml-kmeans": "^4.2.1",
     "qlik-sse": "^0.2.0",
     "require-all": "^3.0.0",
     "yargs": "^13.2.2"
