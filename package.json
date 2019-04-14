@@ -1,0 +1,18 @@
+{
+  "name": "qcb-qlik-sse",
+  "version": "0.1.0",
+  "description": "\"Javascript Qlik Server Side Extension\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Rob Wunderlich",
+  "license": "ISC",
+  "dependencies": {
+    "grpc": "^1.14.1",
+    "qlik-sse": "^0.2.0",
+    "require-all": "^3.0.0",
+    "yargs": "^13.2.2"
+  }
+}
