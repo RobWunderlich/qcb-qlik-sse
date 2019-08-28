@@ -25,12 +25,12 @@ const s = q.server({
   allowScript,
 });
 
-var libs = require('require-all')(__dirname + '/functions')
-Object.values(libs).forEach((value) => {
-  if(value.functionDefinition && value.functionConfig) {
-    console.log('Registering function ' + value.functionConfig.name || value.functionDefinition.name)
-    s.addFunction(value.functionDefinition, value.functionConfig)
-  }  
+var libs = require('require-all')({
+  dirname : __dirname + '/functions',
+  recursive : true
+})
+Object.values(libs).forEach((mod) => {
+  registerFunction(mod)
 })
 
 // start the server
@@ -44,3 +44,19 @@ process.on('uncaughtException', (err) => {
   console.log(">>> Uncaught Exception: " + err.message)
   console.log(err.stack)
 });
+
+// Register this function if it contains function metadata
+function registerFunction(mod) {
+  if(mod.functionDefinition && mod.functionConfig) {
+    console.log('Registering function ' + mod.functionConfig.name || mod.functionDefinition.name)
+    s.addFunction(mod.functionDefinition, mod.functionConfig)
+  } 
+  else {  // May be a subdirectory, recourse it looking for functions.
+    Object.values(mod).forEach((submod) => {
+      registerFunction(submod)
+    })
+  }
+}
+
+  
+
