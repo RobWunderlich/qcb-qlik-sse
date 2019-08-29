@@ -1,12 +1,19 @@
 {
   "name": "qcb-qlik-sse",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "\"Javascript Qlik Server Side Extension\"",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "docs:build": "documentation build functions/** -f html -o docs --sort-order alpha && documentation build functions/** -f md -o docs/functions.md --sort-order alpha"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RobWunderlich/qcb-qlik-sse.git"
+  },
+  "homepage": "https://github.com/RobWunderlich/qcb-qlik-sse",
+  "bugs": {"url": "https://github.com/RobWunderlich/qcb-qlik-sse/issues"},
   "author": "Rob Wunderlich",
   "license": "ISC",
   "dependencies": {

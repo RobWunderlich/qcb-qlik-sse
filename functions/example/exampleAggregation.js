@@ -11,6 +11,7 @@ const functionConfig = {
   /**
  * Sample of Aggregation FunctionType. Sums the value of a field. Same as Qlik Sum(). 
  * @function ExampleAggregation
+ * @memberof Examples 
  * @param {string} fieldname 
  * @returns {number} 
  */

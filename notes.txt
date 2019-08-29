@@ -1,0 +1,2 @@
+- Scalar in script sends one bundle per row. Scalar in chart sends multiple rows in a bundle.
+- Chart Aggregation sends all the rows again to calculate total row.
