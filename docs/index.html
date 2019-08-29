@@ -467,7 +467,7 @@
   </div>
   
 
-  <p>Sample of Aggregation FunctionType. Sums the value of a field. Same as Qlik Sum().</p>
+  <p>Sample of Aggregation FunctionType. Sums the value of a field, same as Qlik Sum().</p>
 
     <div class='pre p1 fill-light mt0'>ExampleAggregation(fieldname: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
   
@@ -613,8 +613,9 @@
   </div>
   
 
-  <p>Sample of Tensor FunctionType. Aggregates column2 values by column1 dim values.
-Same as script "LOAD Col1 as Dim, Sum(Col2) as Value FROM .. Group By Col1"</p>
+  <p>Sample of Tensor FunctionType. </p>
+<p>Aggregates column2 values by column1 dim values. 
+<p>Same as script "LOAD Col1 as Dim, Sum(Col2) as Value FROM .. Group By Col1"
 
     <div class='pre p1 fill-light mt0'>ExampleTensor(tablename: tabledescription): table</div>
   
@@ -907,8 +908,8 @@ Same as script "LOAD Col1 as Dim, Sum(Col2) as Value FROM .. Group By Col1"</p>
   </div>
   
 
-  <p>Sorts the elements of a string list into alphabetical order. Leading and trailing spaces are removed from the elements.
-A string list is a string where the elements are separated by a common delimiter. The default delimiter is comma.</p>
+  <p>Sorts the elements of a string list into alphabetical order. Leading and trailing spaces are removed from the elements. </p>
+<p>A string list is a string where the elements are separated by a common delimiter.
 
     <div class='pre p1 fill-light mt0'>SortList(str: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, separator: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
@@ -936,8 +937,7 @@ A string list is a string where the elements are separated by a common delimiter
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>separator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    optional element delimiter. Default is comma.
-
+	    
           </div>
           
         </div>
@@ -963,7 +963,7 @@ A string list is a string where the elements are separated by a common delimiter
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>SortList(<span class="hljs-string">'John, Zack, Aaron'</span>)  <span class="hljs-comment">// returns 'Aaron,John,Zack'</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>SortList(<span class="hljs-string">'John, Zack, Aaron'</span>, <span class="hljs-string">','</span>)  <span class="hljs-comment">// returns 'Aaron,John,Zack'</span></pre>
     
       
       <pre class='p1 overflow-auto round fill-light'>SortList(<span class="hljs-string">'John| Zack| Aaron'</span> <span class="hljs-string">'|'</span>)  <span class="hljs-comment">// returns 'Aaron|John|Zack'</span></pre>

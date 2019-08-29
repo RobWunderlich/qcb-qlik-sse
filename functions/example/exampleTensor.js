@@ -21,9 +21,10 @@ const functionConfig = {
       {name: 'Value', dataType: q.sse.DataType.NUMERIC},    
     ]
   }).buffer
-  /**
- * Sample of Tensor FunctionType. Aggregates column2 values by column1 dim values. 
- * Same as script "LOAD Col1 as Dim, Sum(Col2) as Value FROM .. Group By Col1"
+ /**
+ * Sample of Tensor FunctionType. 
+ * <p>Aggregates column2 values by column1 dim values. 
+ * <p>Same as script "LOAD Col1 as Dim, Sum(Col2) as Value FROM .. Group By Col1"
  * @function ExampleTensor
  * @param {tabledescription} tablename{dim, value} - describing two fields, dim being Dimension, value is field to aggregate. See 
  * @returns {table} table with two columns, "Dim", "Value"

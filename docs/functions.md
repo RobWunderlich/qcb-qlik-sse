@@ -100,7 +100,7 @@ Returns **[string][32]**
 
 ## ExampleAggregation
 
-Sample of Aggregation FunctionType. Sums the value of a field. Same as Qlik Sum().
+Sample of Aggregation FunctionType. Sums the value of a field, same as Qlik Sum().
 
 ### Parameters
 
@@ -121,8 +121,10 @@ Returns **[number][33]** boolean
 
 ## ExampleTensor
 
-Sample of Tensor FunctionType. Aggregates column2 values by column1 dim values. 
-Same as script "LOAD Col1 as Dim, Sum(Col2) as Value FROM .. Group By Col1"
+Sample of Tensor FunctionType. 
+
+<p>Aggregates column2 values by column1 dim values. 
+<p>Same as script "LOAD Col1 as Dim, Sum(Col2) as Value FROM .. Group By Col1"
 
 ### Parameters
 
@@ -170,17 +172,18 @@ Returns **[string][32]**
 ## SortList
 
 Sorts the elements of a string list into alphabetical order. Leading and trailing spaces are removed from the elements. 
-A string list is a string where the elements are separated by a common delimiter. The default delimiter is comma.
+
+<p>A string list is a string where the elements are separated by a common delimiter.
 
 ### Parameters
 
 -   `str` **[string][32]** 
--   `separator` **[string][32]** optional element delimiter. Default is comma.
+-   `separator` **[string][32]** 
 
 ### Examples
 
 ```javascript
-SortList('John, Zack, Aaron')  // returns 'Aaron,John,Zack'
+SortList('John, Zack, Aaron', ',')  // returns 'Aaron,John,Zack'
 ```
 
 ```javascript

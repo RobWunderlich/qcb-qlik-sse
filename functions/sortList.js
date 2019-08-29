@@ -17,13 +17,13 @@ const functionConfig = {
   }
 /**
  * Sorts the elements of a string list into alphabetical order. Leading and trailing spaces are removed from the elements. 
- * A string list is a string where the elements are separated by a common delimiter. The default delimiter is comma.
+ * <p>A string list is a string where the elements are separated by a common delimiter. 
  * @function SortList
  * @param {string} str
- * @param {string} separator - optional element delimiter. Default is comma.
+ * @param {string} separator
  * @returns {string} text - The text value, which should be the HTML string minus tag elements.  
  * @example
- * SortList('John, Zack, Aaron')  // returns 'Aaron,John,Zack'
+ * SortList('John, Zack, Aaron', ',')  // returns 'Aaron,John,Zack'
  * @example
  * SortList('John| Zack| Aaron' '|')  // returns 'Aaron|John|Zack'
  */
