@@ -10,7 +10,7 @@ This is an experimental project intended to explore creation of a "community con
 
 ### /functions
   
-Contains functions to be added to the server. Each function is written as an individual .js files.
+Contains functions to be added to the server. Each function is written as an individual .js files. Subdirectories are allowed. 
 
 The functions must export the following symbols:
 
@@ -31,3 +31,10 @@ startup options:
 
 * `--allowScript=true`  enable inline script execution.
 * `--port n`  specify server port. Default is 50051.
+
+## Contributions
+Contributions are welcome. Please fork the project and submit a PR. 
+
+I'm particularly looking for contributions of:
+* New functions
+* Convenience classes or restructing ideas that make implementing new function easier or more robust.
