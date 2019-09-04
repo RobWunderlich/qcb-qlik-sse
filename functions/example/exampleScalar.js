@@ -21,6 +21,8 @@ const functionConfig = {
  * @param {string} num1
  * @param {string} num2
  * @returns {number} boolean
+ * @example
+ * ExampleScalar(field1, field2)
  */
   const functionDefinition = function ExampleScalar(request) {
     let bundleNum = 0;
@@ -31,9 +33,8 @@ const functionConfig = {
         let result = 0;
         bundle.rows.forEach((row, index) => {
           console.log('ExampleScalar: Row number ', index, row)
-          result = row.duals[0].numData > row.duals[1].numData
           rows.push({
-            duals: [{ numData: result ? -1 : 0}]
+            duals: [{ numData: CompareNums(row.duals[0].numData, row.duals[1].numData) }]
           });
         }); 
         console.log('ExampleScalar: Writing ', rows)     
@@ -47,6 +48,10 @@ const functionConfig = {
   });
 }
 
+// It's probably clearest to put the behavior in a separate function from the bundle/row logic
+function CompareNums(num1, num2) {
+  return num1 > num2 ? -1 : 0
+}
 
 module.exports = {
   functionDefinition,

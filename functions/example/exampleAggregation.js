@@ -14,6 +14,8 @@ const functionConfig = {
  * @memberof Examples 
  * @param {string} fieldname 
  * @returns {number} 
+ * @example
+ * ExampleAggregation(myfield)
  */
 
   const functionDefinition = function ExampleAggregation(request) {
@@ -21,7 +23,6 @@ const functionConfig = {
     request.on('data', (bundle) => {
       console.log('ExampleAggregation: Bundle number ', ++bundleNum, bundle) 
       try {
-        console.log('ExampleAggregation: CommonRequestHeader ', common)
         const rows = [];
         let v = 0;
         bundle.rows.forEach((row, index) => {
@@ -46,6 +47,7 @@ const functionConfig = {
       
     });
   }
+
   module.exports = {
     functionDefinition,
     functionConfig,
