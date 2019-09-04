@@ -9,11 +9,11 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/server.js",
+            "program": "${workspaceFolder}/index.js",
             "args": [
-                "--allowScript", "true"
+                "--allowScript", "false"
             ]
-            ,
+            // ,
             // "env": {
             //     "GRPC_TRACE" : "all",
             //     "GRPC_VERBOSITY" : "DEBUG"

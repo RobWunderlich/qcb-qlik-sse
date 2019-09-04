@@ -13,14 +13,20 @@
     "url": "https://github.com/RobWunderlich/qcb-qlik-sse.git"
   },
   "homepage": "https://github.com/RobWunderlich/qcb-qlik-sse",
-  "bugs": {"url": "https://github.com/RobWunderlich/qcb-qlik-sse/issues"},
+  "bugs": {
+    "url": "https://github.com/RobWunderlich/qcb-qlik-sse/issues"
+  },
   "author": "Rob Wunderlich",
   "license": "ISC",
   "dependencies": {
+    "enigma.js": "^2.4.0",
+    "fs": "0.0.1-security",
     "grpc": "^1.14.1",
     "ml-kmeans": "^4.2.1",
-    "qlik-sse": "^0.2.0",
+    "path": "^0.12.7",
+    "qlik-sse": "^0.3.0",
     "require-all": "^3.0.0",
+    "ws": "^7.1.2",
     "yargs": "^13.2.2"
   }
 }
