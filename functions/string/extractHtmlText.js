@@ -1,31 +1,28 @@
 const q = require('qlik-sse');
 
 const functionConfig = {
-    name: 'DecodeURI',
+    name: 'ExtractHtmlText',
     functionType: q.sse.FunctionType.SCALAR,
     returnType: q.sse.DataType.STRING,
     params: [
       {
-        name: 'str',
-        dataType: q.sse.DataType.STRING,
+      name: 'htmlString',
+      dataType: q.sse.DataType.STRING,
       }
     ],
   }
 /**
- * The decodeURI() function decodes a Uniform Resource Identifier (URI) previously created by encodeURI() or by a similar routine.
- * @function DecodeURI
- * @param {string} str
- * @returns {string}   
- * @example
- * DecodeURI('my%20test.asp?name=st%C3%A5le&car=saab')  // returns 'my test.asp?name=ståle&car=saab'
+ * Extracts text node contents from an HTML string.
+ * @function ExtractHtmlText
+ * @param {string} htmlString
+ * @returns {string} text - The text value, which should be the HTML string minus tag elements.  
  */
-  const functionDefinition = function regexTest(request) {
+  const functionDefinition = function extractHtmlText(request) {
     request.on('data', (bundle) => {
       try {
         const rows = [];
         bundle.rows.forEach((row) => {
-          let str = row.duals[0].strData
-          let result = decodeURI(str)
+          let result = row.duals[0].strData.replace(/<\/?[a-z][a-z0-9]*[^<>]*>|<!--.*?-->/g, '');
           rows.push({
             duals: [{ strData: result}]
           });
@@ -36,7 +33,8 @@ const functionConfig = {
       }
       catch (error) {
         console.log(error)
-      }      
+      }
+      
     });
   }
 

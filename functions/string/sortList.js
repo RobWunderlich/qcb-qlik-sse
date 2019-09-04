@@ -27,7 +27,7 @@ const functionConfig = {
  * @example
  * SortList('John| Zack| Aaron' '|')  // returns 'Aaron|John|Zack'
  */
-  const functionDefinition = function regexTest(request) {
+  const functionDefinition = function sortList(request) {
     request.on('data', (bundle) => {
       try {
         const rows = [];

@@ -24,7 +24,7 @@ const functionConfig = {
  * @example
  * Space('Sometimes    more than     one', 1)  // returns 'Sometimes more than one'
  */
-  const functionDefinition = function regexTest(request) {
+  const functionDefinition = function space(request) {
     request.on('data', (bundle) => {
       try {
         const rows = [];

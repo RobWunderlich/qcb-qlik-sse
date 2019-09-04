@@ -1,7 +1,7 @@
 const q = require('qlik-sse');
 
 const functionConfig = {
-    name: 'DecodeURIComponent',
+    name: 'DecodeURI',
     functionType: q.sse.FunctionType.SCALAR,
     returnType: q.sse.DataType.STRING,
     params: [
@@ -12,20 +12,20 @@ const functionConfig = {
     ],
   }
 /**
- * The decodeURIComponent() function decodes a Uniform Resource Identifier (URI) component previously created by encodeURIComponent or by a similar routine.
- * @function DecodeURIComponent
+ * The decodeURI() function decodes a Uniform Resource Identifier (URI) previously created by encodeURI() or by a similar routine.
+ * @function DecodeURI
  * @param {string} str
  * @returns {string}   
  * @example
- * EncodeURIComponent('https%3A%2F%2Fw3schools.com%2Fmy%20test.asp%3Fname%3Dst%C3%A5le%26car%3Dsaab')  // returns 'https://w3schools.com/my test.asp?name=ståle&car=saab'
+ * DecodeURI('my%20test.asp?name=st%C3%A5le&car=saab')  // returns 'my test.asp?name=ståle&car=saab'
  */
-  const functionDefinition = function regexTest(request) {
+  const functionDefinition = function QCB_DecodeURI(request) {
     request.on('data', (bundle) => {
       try {
         const rows = [];
         bundle.rows.forEach((row) => {
           let str = row.duals[0].strData
-          let result = decodeURIComponent(str)
+          let result = decodeURI(str)
           rows.push({
             duals: [{ strData: result}]
           });

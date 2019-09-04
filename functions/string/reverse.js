@@ -1,28 +1,31 @@
 const q = require('qlik-sse');
 
 const functionConfig = {
-    name: 'ExtractHtmlText',
+    name: 'Reverse',
     functionType: q.sse.FunctionType.SCALAR,
     returnType: q.sse.DataType.STRING,
     params: [
       {
-      name: 'htmlString',
-      dataType: q.sse.DataType.STRING,
+        name: 'str',
+        dataType: q.sse.DataType.STRING,
       }
     ],
   }
 /**
- * Extracts text node contents from an HTML string.
- * @function ExtractHtmlText
- * @param {string} htmlString
- * @returns {string} text - The text value, which should be the HTML string minus tag elements.  
+ * Reverses the characters in a string.
+ * @function Reverse
+ * @param {string} str
+ * @returns {string}   
+ * @example
+ * Reverse('Hello World')  // returns 'dlroW olleH'
  */
-  const functionDefinition = function regexTest(request) {
+  const functionDefinition = function reverse(request) {
     request.on('data', (bundle) => {
       try {
         const rows = [];
         bundle.rows.forEach((row) => {
-          let result = row.duals[0].strData.replace(/<\/?[a-z][a-z0-9]*[^<>]*>|<!--.*?-->/g, '');
+          let str = row.duals[0].strData
+          let result = str.split("").reverse().join("")
           rows.push({
             duals: [{ strData: result}]
           });
@@ -33,8 +36,7 @@ const functionConfig = {
       }
       catch (error) {
         console.log(error)
-      }
-      
+      }      
     });
   }
 
