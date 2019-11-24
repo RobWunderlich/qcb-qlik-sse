@@ -25,7 +25,7 @@ Read more about writing functions in the [qlik-sse doc](https://github.com/miral
 ### Running the Server
 Configure the SSE in your Qlik installation by following [these instructions](https://github.com/qlik-oss/server-side-extension/blob/master/docs/configuration.md)
 
-`node server.js`
+`node index.js [options]`
 
 startup options:
 
