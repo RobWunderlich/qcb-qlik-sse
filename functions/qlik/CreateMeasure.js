@@ -2,7 +2,6 @@ const q = require('qlik-sse');
 const sessionMgr = require('../../lib/Qlik/QlikSession');
 const helper = require('../../lib/Qlik/QlikHelper');
 
-
 const functionConfig = {
   name: 'CreateMeasure',
   functionType: q.sse.FunctionType.SCALAR,
