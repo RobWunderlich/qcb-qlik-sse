@@ -2,54 +2,92 @@
 
 ### Table of Contents
 
--   [CreateMeasure][1]
+-   [CreateDimension][1]
     -   [Parameters][2]
     -   [Examples][3]
--   [CreateMeasureFromProperties][4]
+-   [CreateMeasure][4]
     -   [Parameters][5]
     -   [Examples][6]
--   [DecodeURI][7]
+-   [CreateMeasureFromProperties][7]
     -   [Parameters][8]
     -   [Examples][9]
--   [DecodeURIComponent][10]
+-   [DecodeURI][10]
     -   [Parameters][11]
     -   [Examples][12]
--   [Decrypt][13]
+-   [DecodeURIComponent][13]
     -   [Parameters][14]
     -   [Examples][15]
--   [EncodeURI][16]
+-   [Decrypt][16]
     -   [Parameters][17]
     -   [Examples][18]
--   [EncodeURIComponent][19]
+-   [DeleteDimension][19]
     -   [Parameters][20]
     -   [Examples][21]
--   [Encrypt][22]
+-   [DeleteMeasure][22]
     -   [Parameters][23]
     -   [Examples][24]
--   [ExampleAggregation][25]
+-   [EncodeURI][25]
     -   [Parameters][26]
     -   [Examples][27]
--   [ExampleScalar][28]
+-   [EncodeURIComponent][28]
     -   [Parameters][29]
     -   [Examples][30]
--   [ExampleTensor][31]
+-   [Encrypt][31]
     -   [Parameters][32]
--   [ExtractHtmlText][33]
-    -   [Parameters][34]
--   [GetMeasures][35]
-    -   [Parameters][36]
-    -   [Examples][37]
--   [RegexTest][38]
-    -   [Parameters][39]
--   [Reverse][40]
+    -   [Examples][33]
+-   [ExampleAggregation][34]
+    -   [Parameters][35]
+    -   [Examples][36]
+-   [ExampleScalar][37]
+    -   [Parameters][38]
+    -   [Examples][39]
+-   [ExampleTensor][40]
     -   [Parameters][41]
-    -   [Examples][42]
--   [SortList][43]
-    -   [Parameters][44]
-    -   [Examples][45]
--   [Space][46]
-    -   [Parameters][47]
-    -   [Examples][48]
+-   [ExtractHtmlText][42]
+    -   [Parameters][43]
+-   [GetDimensions][44]
+    -   [Parameters][45]
+    -   [Examples][46]
+-   [GetMeasures][47]
+    -   [Parameters][48]
+    -   [Examples][49]
+-   [RegexTest][50]
+    -   [Parameters][51]
+-   [Reverse][52]
+    -   [Parameters][53]
+    -   [Examples][54]
+-   [SortList][55]
+    -   [Parameters][56]
+    -   [Examples][57]
+-   [Space][58]
+    -   [Parameters][59]
+    -   [Examples][60]
+
+## CreateDimension
+
+Create a Dimension in the calling app.
+
+### Parameters
+
+-   `name` **[string][61]** 
+-   `definition` **[string][61]** 
+-   `description` **[string][61]** 
+-   `tags` **[string][61]** 
+-   `label` **[string][61]** 
+
+### Examples
+
+```javascript
+Without Grouping: CreateDimension(nameField, defField, descField,tagsField)
+With Grouping(Hierarchy): CreateDimension(nameField Hierarchy, defListField ,descField,tagsField,labelField)
+```
+
+```javascript
+Without Grouping :CreateDimension('Country', 'Country',Country of Supplier, 'Sales,Company A')
+With Grouping(Hierarchy):CreateDimension('Calendar Date Hierarchy', 'Year,Month,Date' , 'Hierarchy Fiscal Year -> Fiscal Period -> Date', 'Time')
+```
+
+Returns **[string][61]** status - "Created" or "Replaced" plus any validation error messages.
 
 ## CreateMeasure
 
@@ -57,20 +95,23 @@ Create a Measure in the calling app.
 
 ### Parameters
 
--   `name` **[string][49]** 
--   `defintion` **[string][49]** 
+-   `name` **[string][61]** 
+-   `definition` **[string][61]** 
+-   `description` **[string][61]** 
+-   `tags` **[string][61]** 
+-   `label` **[string][61]** 
 
 ### Examples
 
 ```javascript
-CreateMeasure(nameField, defField)
+CreateMeasure(nameField, defField, descField,tagsField,labelField)
 ```
 
 ```javascript
-CreateMeasure('Total Sales', 'Sum(Sales)')
+CreateMeasure('Total Sales', 'Sum(Sales)','Total Sales Aggregation Master Item','KPI,Annual','='Sales extraction date:'& today()')
 ```
 
-Returns **[string][49]** status - "Created" or "Replaced" plus any validation error messages.
+Returns **[string][61]** status - "Created" or "Replaced" plus any validation error messages.
 
 ## CreateMeasureFromProperties
 
@@ -78,7 +119,7 @@ Create a Measure in the calling app.
 
 ### Parameters
 
--   `props` **[string][49]** MeasureProps in JSON format
+-   `props` **[string][61]** MeasureProps in JSON format
 
 ### Examples
 
@@ -86,7 +127,7 @@ Create a Measure in the calling app.
 CreateMeasureFromProperties(measureDefField)
 ```
 
-Returns **[string][49]** status - "Created" or "Replaced" plus any validation error messages.
+Returns **[string][61]** status - "Created" or "Replaced" plus any validation error messages.
 
 ## DecodeURI
 
@@ -94,7 +135,7 @@ The decodeURI() function decodes a Uniform Resource Identifier (URI) previously 
 
 ### Parameters
 
--   `str` **[string][49]** 
+-   `str` **[string][61]** 
 
 ### Examples
 
@@ -102,7 +143,7 @@ The decodeURI() function decodes a Uniform Resource Identifier (URI) previously 
 DecodeURI('my%20test.asp?name=st%C3%A5le&car=saab')  // returns 'my test.asp?name=ståle&car=saab'
 ```
 
-Returns **[string][49]** 
+Returns **[string][61]** 
 
 ## DecodeURIComponent
 
@@ -110,7 +151,7 @@ The decodeURIComponent() function decodes a Uniform Resource Identifier (URI) co
 
 ### Parameters
 
--   `str` **[string][49]** 
+-   `str` **[string][61]** 
 
 ### Examples
 
@@ -118,7 +159,7 @@ The decodeURIComponent() function decodes a Uniform Resource Identifier (URI) co
 EncodeURIComponent('https%3A%2F%2Fw3schools.com%2Fmy%20test.asp%3Fname%3Dst%C3%A5le%26car%3Dsaab')  // returns 'https://w3schools.com/my test.asp?name=ståle&car=saab'
 ```
 
-Returns **[string][49]** 
+Returns **[string][61]** 
 
 ## Decrypt
 
@@ -126,8 +167,8 @@ Decrypt a value.
 
 ### Parameters
 
--   `ciphertext` **[string][49]** to decrypt, as generated by the Encrypt() function.
--   `passphrase` **[string][49]** to decrypt with.  This must be the same passphrase that was used in Encrypt().
+-   `ciphertext` **[string][61]** to decrypt, as generated by the Encrypt() function.
+-   `passphrase` **[string][61]** to decrypt with.  This must be the same passphrase that was used in Encrypt().
 
 ### Examples
 
@@ -135,7 +176,47 @@ Decrypt a value.
 Decrypt(EncCreditCard, 'secret phrase')
 ```
 
-Returns **[string][49]** unencrypted text.
+Returns **[string][61]** unencrypted text.
+
+## DeleteDimension
+
+Delete a Dimension by proving its name in app the request was executed in.
+
+### Parameters
+
+-   `name` **[string][61]** 
+
+### Examples
+
+```javascript
+DeleteDimension(dimensionName)
+```
+
+```javascript
+DeleteDimension('Calendar Date')
+```
+
+Returns **[string][61]** status - "Deleted" plus any validation error messages.
+
+## DeleteMeasure
+
+Delete a Measure by proving its name in the app request was executed in.
+
+### Parameters
+
+-   `name` **[string][61]** 
+
+### Examples
+
+```javascript
+DeleteMeasure(MeasureName)
+```
+
+```javascript
+DeleteMeasure('Total Sales')
+```
+
+Returns **[string][61]** status - "Deleted" plus any validation error messages.
 
 ## EncodeURI
 
@@ -143,7 +224,7 @@ Encodes a Uniform Resource Identifier (URI).
 
 ### Parameters
 
--   `str` **[string][49]** 
+-   `str` **[string][61]** 
 
 ### Examples
 
@@ -151,7 +232,7 @@ Encodes a Uniform Resource Identifier (URI).
 EncodeURI('my test.asp?name=ståle&car=saab')  // returns 'my%20test.asp?name=st%C3%A5le&car=saab'
 ```
 
-Returns **[string][49]** 
+Returns **[string][61]** 
 
 ## EncodeURIComponent
 
@@ -159,7 +240,7 @@ Encodes a Uniform Resource Identifier (URI) component.
 
 ### Parameters
 
--   `str` **[string][49]** 
+-   `str` **[string][61]** 
 
 ### Examples
 
@@ -167,7 +248,7 @@ Encodes a Uniform Resource Identifier (URI) component.
 EncodeURIComponent('my test.asp?name=ståle&car=saab')  // returns 'my%20test.asp?name=st%C3%A5le&car=saab'
 ```
 
-Returns **[string][49]** 
+Returns **[string][61]** 
 
 ## Encrypt
 
@@ -175,8 +256,8 @@ Encrypt a value.
 
 ### Parameters
 
--   `plaintext` **[string][49]** to encrypt.
--   `passphrase` **[string][49]** to encrpyt with.
+-   `plaintext` **[string][61]** to encrypt.
+-   `passphrase` **[string][61]** to encrpyt with.
 
 ### Examples
 
@@ -184,7 +265,7 @@ Encrypt a value.
 Encrypt(CreditCard, 'secret phrase')
 ```
 
-Returns **[string][49]** encrypted text.
+Returns **[string][61]** encrypted text.
 
 ## ExampleAggregation
 
@@ -192,7 +273,7 @@ Sample of Aggregation FunctionType. Sums the value of a field, same as Qlik Sum(
 
 ### Parameters
 
--   `fieldname` **[string][49]** 
+-   `fieldname` **[string][61]** 
 
 ### Examples
 
@@ -200,7 +281,7 @@ Sample of Aggregation FunctionType. Sums the value of a field, same as Qlik Sum(
 ExampleAggregation(myfield)
 ```
 
-Returns **[number][50]** 
+Returns **[number][62]** 
 
 ## ExampleScalar
 
@@ -208,8 +289,8 @@ Sample of Scalar FunctionType. Returns true if num1 GT num2, otherwise false
 
 ### Parameters
 
--   `num1` **[string][49]** 
--   `num2` **[string][49]** 
+-   `num1` **[string][61]** 
+-   `num2` **[string][61]** 
 
 ### Examples
 
@@ -217,7 +298,7 @@ Sample of Scalar FunctionType. Returns true if num1 GT num2, otherwise false
 ExampleScalar(field1, field2)
 ```
 
-Returns **[number][50]** boolean
+Returns **[number][62]** boolean
 
 ## ExampleTensor
 
@@ -238,9 +319,31 @@ Extracts text node contents from an HTML string.
 
 ### Parameters
 
--   `htmlString` **[string][49]** 
+-   `htmlString` **[string][61]** 
 
-Returns **[string][49]** text - The text value, which should be the HTML string minus tag elements.
+Returns **[string][61]** text - The text value, which should be the HTML string minus tag elements.
+
+## GetDimensions
+
+Load Dimensions as JSON from an app.
+<br>Current SSE specification requires AppId to be specified as a Field.
+
+### Parameters
+
+-   `Tablename` **tabledescription** {AppId}
+
+### Examples
+
+```javascript
+TempId:
+LOAD '\Documents\Qlik\Sense\Apps\Sales Discovery.qvf' as AppId
+AutoGenerate 1;
+
+LoadedDimensions:
+Load * Extension QCB.GetDimensions(TempId{AppId});
+```
+
+Returns **[string][61]** json Dimension(s)
 
 ## GetMeasures
 
@@ -262,7 +365,7 @@ LoadedMeasures:
 Load * Extension QCB.GetMeasures(TempId{AppId});
 ```
 
-Returns **[string][49]** json Measure(s)
+Returns **[string][61]** json Measure(s)
 
 ## RegexTest
 
@@ -270,10 +373,10 @@ Tests a string for match with a regular expression.
 
 ### Parameters
 
--   `stringToTest` **[string][49]** The string to test with the regular expression.
--   `pattern` **[string][49]** The regular expression pattern to use in the test.
+-   `stringToTest` **[string][61]** The string to test with the regular expression.
+-   `pattern` **[string][61]** The regular expression pattern to use in the test.
 
-Returns **[number][50]** boolean - 0 if false, -1 if true.
+Returns **[number][62]** boolean - 0 if false, -1 if true.
 
 ## Reverse
 
@@ -281,7 +384,7 @@ Reverses the characters in a string.
 
 ### Parameters
 
--   `str` **[string][49]** 
+-   `str` **[string][61]** 
 
 ### Examples
 
@@ -289,7 +392,7 @@ Reverses the characters in a string.
 Reverse('Hello World')  // returns 'dlroW olleH'
 ```
 
-Returns **[string][49]** 
+Returns **[string][61]** 
 
 ## SortList
 
@@ -299,8 +402,8 @@ Sorts the elements of a string list into alphabetical order. Leading and trailin
 
 ### Parameters
 
--   `str` **[string][49]** 
--   `separator` **[string][49]** 
+-   `str` **[string][61]** 
+-   `separator` **[string][61]** 
 
 ### Examples
 
@@ -312,7 +415,7 @@ SortList('John, Zack, Aaron', ',')  // returns 'Aaron,John,Zack'
 SortList('John| Zack| Aaron' '|')  // returns 'Aaron|John|Zack'
 ```
 
-Returns **[string][49]** text - The text value, which should be the HTML string minus tag elements.
+Returns **[string][61]** text - The text value, which should be the HTML string minus tag elements.
 
 ## Space
 
@@ -320,8 +423,8 @@ Replace multiple spaces between words with count spaces.
 
 ### Parameters
 
--   `str` **[string][49]** 
--   `count` **[number][50]** 
+-   `str` **[string][61]** 
+-   `count` **[number][62]** 
 
 ### Examples
 
@@ -329,104 +432,128 @@ Replace multiple spaces between words with count spaces.
 Space('Sometimes    more than     one', 1)  // returns 'Sometimes more than one'
 ```
 
-Returns **[string][49]** 
+Returns **[string][61]** 
 
-[1]: #createmeasure
+[1]: #createdimension
 
 [2]: #parameters
 
 [3]: #examples
 
-[4]: #createmeasurefromproperties
+[4]: #createmeasure
 
 [5]: #parameters-1
 
 [6]: #examples-1
 
-[7]: #decodeuri
+[7]: #createmeasurefromproperties
 
 [8]: #parameters-2
 
 [9]: #examples-2
 
-[10]: #decodeuricomponent
+[10]: #decodeuri
 
 [11]: #parameters-3
 
 [12]: #examples-3
 
-[13]: #decrypt
+[13]: #decodeuricomponent
 
 [14]: #parameters-4
 
 [15]: #examples-4
 
-[16]: #encodeuri
+[16]: #decrypt
 
 [17]: #parameters-5
 
 [18]: #examples-5
 
-[19]: #encodeuricomponent
+[19]: #deletedimension
 
 [20]: #parameters-6
 
 [21]: #examples-6
 
-[22]: #encrypt
+[22]: #deletemeasure
 
 [23]: #parameters-7
 
 [24]: #examples-7
 
-[25]: #exampleaggregation
+[25]: #encodeuri
 
 [26]: #parameters-8
 
 [27]: #examples-8
 
-[28]: #examplescalar
+[28]: #encodeuricomponent
 
 [29]: #parameters-9
 
 [30]: #examples-9
 
-[31]: #exampletensor
+[31]: #encrypt
 
 [32]: #parameters-10
 
-[33]: #extracthtmltext
+[33]: #examples-10
 
-[34]: #parameters-11
+[34]: #exampleaggregation
 
-[35]: #getmeasures
+[35]: #parameters-11
 
-[36]: #parameters-12
+[36]: #examples-11
 
-[37]: #examples-10
+[37]: #examplescalar
 
-[38]: #regextest
+[38]: #parameters-12
 
-[39]: #parameters-13
+[39]: #examples-12
 
-[40]: #reverse
+[40]: #exampletensor
 
-[41]: #parameters-14
+[41]: #parameters-13
 
-[42]: #examples-11
+[42]: #extracthtmltext
 
-[43]: #sortlist
+[43]: #parameters-14
 
-[44]: #parameters-15
+[44]: #getdimensions
 
-[45]: #examples-12
+[45]: #parameters-15
 
-[46]: #space
+[46]: #examples-13
 
-[47]: #parameters-16
+[47]: #getmeasures
 
-[48]: #examples-13
+[48]: #parameters-16
 
-[49]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[49]: #examples-14
 
-[50]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[50]: #regextest
+
+[51]: #parameters-17
+
+[52]: #reverse
+
+[53]: #parameters-18
+
+[54]: #examples-15
+
+[55]: #sortlist
+
+[56]: #parameters-19
+
+[57]: #examples-16
+
+[58]: #space
+
+[59]: #parameters-20
+
+[60]: #examples-17
+
+[61]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[62]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
