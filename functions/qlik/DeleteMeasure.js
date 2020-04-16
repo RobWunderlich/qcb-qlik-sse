@@ -55,6 +55,7 @@ const DoDeleteMeasure = async function DoDeleteMeasure({
     name,
     commonHeader
 }) {
+
     let retVal = 'False'
     let isDesktop = commonHeader.userId == 'Personal\\Me'
     let session = null
