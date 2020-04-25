@@ -31,10 +31,10 @@ var libs = require('require-all')({
 })
 Object.values(libs).forEach((mod) => {
 
-  //check if mod is createQvsScript
+  //check if mod is qvsToFunction
   if(mod.createQvsScript){
     
-    mod.createQvsScript.forEach( function(distinctFunction){
+    mod.qvsToFunction.forEach( function(distinctFunction){
       
       registerFunction(distinctFunction)
     
