@@ -1,0 +1,6 @@
+FunctionName: StoreQvd
+Params:table_name,path
+
+
+STORE [#{table_name}] INTO [lib://#{path}.qvd](QVD);
+DROP TABLE [#{table_name}];

@@ -1,0 +1,18 @@
+FunctionName: Calendar
+Params: fieldName,startDate,endDate
+
+
+Calendario:
+LOAD
+  [#{fieldName}], 
+  MonthName([#{fieldName}]) AS  MesAno,
+  Month([#{fieldName}])     AS  Mes,
+  Year([#{fieldName}])      AS  Ano
+;
+LOAD
+
+  Date(Date#('#{startDate}')-1 + recno())  as [#{fieldName}]
+
+AUTOGENERATE
+  (Date#('#{endDate}')-Date#('#{startDate}'))+1
+;

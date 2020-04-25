@@ -30,7 +30,22 @@ var libs = require('require-all')({
   recursive : true
 })
 Object.values(libs).forEach((mod) => {
-  registerFunction(mod)
+
+  //check if mod is createQvsScript
+  if(mod.createQvsScript){
+    
+    mod.createQvsScript.forEach( function(distinctFunction){
+      
+      registerFunction(distinctFunction)
+    
+    }); 
+
+  }else{
+
+    registerFunction(mod)
+
+  }
+
 })
 
 // start the server
