@@ -37,6 +37,9 @@ If you wish to use functions that send mail, you must configure the nodemailer p
 1. Rename or copy /lib/mail/sample-mailOptions.js to mailOptions.js.
 2. In mailOptions.js, configure SMTP host, port and authentication and other properties as required. 
 
+### Function Documentation
+Generated documenation of individual functions may be found [here](docs/functions.md)
+
 ## Contributions
 Contributions are welcome. Please fork the project and submit a PR. 
 
