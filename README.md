@@ -35,7 +35,7 @@ startup options:
 ### Configuring Mail
 If you wish to use functions that send mail, you must configure the nodemailer properties. 
 1. Rename or copy /lib/mail/sample-mailOptions.js to mailOptions.js.
-2. In mailOptions.js, configure SMTP host, port and authentication and pther properties as required. 
+2. In mailOptions.js, configure SMTP host, port and authentication and other properties as required. 
 
 ## Contributions
 Contributions are welcome. Please fork the project and submit a PR. 
