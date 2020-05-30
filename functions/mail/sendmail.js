@@ -39,7 +39,7 @@ const functionConfig = {
  * @returns {string} status
  * @example
  * let status = QCB.SendMail('admin@qlikaroo.com', 'someuser@qlikaroo.com', 'Reload Completed',
-	'Reload of "' & DocumentTitle() & '" completed at ' & Now(1));
+	'Reload of "' & DocumentTitle() & '" completed at ' & Now(1), '');
  */
   const functionDefinition = async function SendMail(request) {
     request.on('data', async (bundle) => {
