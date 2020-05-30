@@ -19,15 +19,15 @@
   "author": "Rob Wunderlich",
   "license": "ISC",
   "dependencies": {
-    "enigma.js": "^2.4.0",
+    "enigma.js": "^2.7.1",
     "fs": "0.0.1-security",
-    "grpc": "^1.14.1",
+    "grpc": "^1.24.2",
     "ml-kmeans": "^4.2.1",
     "nodemailer": "^6.4.8",
     "path": "^0.12.7",
     "qlik-sse": "^0.3.0",
     "require-all": "^3.0.0",
-    "ws": "^7.1.2",
-    "yargs": "^13.2.2"
+    "ws": "^7.3.0",
+    "yargs": "^13.3.2"
   }
 }
