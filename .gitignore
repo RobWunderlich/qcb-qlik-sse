@@ -78,3 +78,4 @@ typings/
 # Project misc working files
 notes.txt
 snippet.js
+lib/mail/mailOptions.js

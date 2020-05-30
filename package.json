@@ -23,6 +23,7 @@
     "fs": "0.0.1-security",
     "grpc": "^1.14.1",
     "ml-kmeans": "^4.2.1",
+    "nodemailer": "^6.4.8",
     "path": "^0.12.7",
     "qlik-sse": "^0.3.0",
     "require-all": "^3.0.0",
