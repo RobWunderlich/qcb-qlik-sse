@@ -35,7 +35,7 @@ const functionConfig = {
  * @param {string} toAddress
  * @param {string} subject
  * @param {string} text - text version of message
- * @param {string} html - hteml version of message. Empty string if no html version.
+ * @param {string} html - html version of message. Empty string if no html version.
  * @returns {string} status
  * @example
  * let status = QCB.SendMail('admin@qlikaroo.com', 'someuser@qlikaroo.com', 'Reload Completed',
