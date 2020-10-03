@@ -1,0 +1,17 @@
+doctype html
+table
+    - var count = 0
+    each row in rowdata
+        if count == 0
+            thead
+                tr
+                    each val, key in row 
+                        th #{key}
+            tr
+                each val in row
+                    td #{val}
+        else
+            tr
+                each val in row
+                    td #{val}
+        - count++
