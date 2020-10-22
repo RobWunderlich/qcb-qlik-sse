@@ -74,7 +74,7 @@ const functionConfig = {
     })
   }
   function DoTransform(rowdata, template) {
-    template = !template ? 'HtmlTableSimple.pug' : (template.indexOf('.') = 0 ? template += '.pug' : template)
+    template = !template ? 'HtmlTableSimple.pug' : (template.indexOf('.') == 0 ? template += '.pug' : template)
     return pug.renderFile('lib/template/' + template, {rowdata: rowdata})
   }
 

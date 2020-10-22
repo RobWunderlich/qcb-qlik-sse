@@ -1,0 +1,68 @@
+Sub QCB.TableAsJson (tableIn, tableOut, fieldOut)
+// Convert a resident table to JSON format. 
+// This can be uses to consolidate a number of fields to a single field 
+// as a workaround for SSE not accepting a variable number of parameters. 
+Set _AsJson = '"$1": ' & if(IsNum([$1]) and text([$1]) = num([$1]), [$1], '"' &  MapSubstring('_JsonEscapeMap',[$1]) & '"');
+_JsonEscapeMap:
+Mapping Load Evaluate(from), to Inline [
+from, to
+chr(34), \"
+chr(92), \\
+chr(10), \n
+chr(13), \r
+chr(9), \t
+];
+_TempFields:
+Load
+	concat(chr(36) & '(_AsJson(' & _fieldname & '))', '& '','' &')  as _fields
+;    
+LOAD
+	FieldName(RecNo(),'$(tableIn)') as _fieldname
+AutoGenerate NoOfFields('$(tableIn)')    
+;
+Let _vFields = Peek('_fields');
+Drop table _TempFields;
+
+Set _vConcatenate = 'NoConcatenate';
+When NoOfRows('$(tableOut)') > 0 Set _vConcatenate = 'Concatenate'; // Existing table, assume we want to concatenate
+$(_vConcatenate) 
+[$(tableOut)]:
+LOAD '{' & $(_vFields) & '}' as [$(fieldOut)]
+Resident [$(tableIn)];
+
+SET _vFields=;
+Set _AsJson=;
+
+End Sub
+
+
+Sub QCB.TableAsCsv (tableIn, tableOut, fieldOut)
+// Convert a resident table to CSV format. 
+// This can be uses to consolidate a number of fields to a single field 
+// as a workaround for SSE not accepting a variable number of parameters. 
+Set _Quote = '"' & replace($1,'"','""') & '"';
+_TempFields:
+Load
+	concat(chr(36) & '(_Quote(' & _fieldname & '))', ' & '','' & ' )  as _fields,
+    '"' & concat( _fieldname, '","' ) & '"' as _fieldnames
+;    
+LOAD
+	'[' & FieldName(RecNo(),'$(tableIn)') & ']' as _fieldname
+AutoGenerate NoOfFields('$(tableIn)')    
+;
+Let _vFields = Peek('_fields');
+Let _vFieldnames = PurgeChar(Peek('_fieldnames'),'[]');
+Drop table _TempFields;
+
+Set _vConcatenate = 'NoConcatenate';
+When NoOfRows('$(tableOut)') > 0 Set _vConcatenate = 'Concatenate'; // Existing table, assume we want to concatenate
+$(_vConcatenate) 
+[$(tableOut)]:
+LOAD '$(_vFieldnames)' as rowdata AutoGenerate 1;
+LOAD $(_vFields) as [$(fieldOut)]
+Resident [$(tableIn)];
+
+SET _vFields=;
+SET _Quote=;
+
+End Sub
