@@ -118,7 +118,9 @@ const DoCreateDimension = async function DoCreateDimension({
             tags: tags.split(/[,;]+/)
         }
     }
-
+    if (desc.trim().startsWith("=")) {
+        dimensionDef.qDim.descriptionExpression =  {qStringExpression: {qExpr: `${desc}`}}
+    }
     let isDesktop = commonHeader.userId == 'Personal\\Me'
     let session = null
     try {
@@ -145,6 +147,7 @@ const DoCreateDimension = async function DoCreateDimension({
             retVal = 'Replaced';
         }
         // Persist the dimension
+        var layout = dimension.getLayout();     // Call getLayout to evaluate DecscriptionExpression
         docprop = await doc.getAppProperties()
         if (docprop.published) {
             await dimension.publish()
