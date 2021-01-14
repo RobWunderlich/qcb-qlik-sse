@@ -108,7 +108,7 @@ const DoCreateMeasure = async function DoCreateMeasure({
     }
   }
   
-  //"descriptionExpression":{"qStringExpression":{"qExpr":"today()&'ABC'"}}
+  
   if (desc.trim().startsWith("=")) {
         measureDef.qMeasure.descriptionExpression =  {qStringExpression: {qExpr: `${desc}`}}
     }
