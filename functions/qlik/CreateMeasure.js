@@ -107,6 +107,13 @@ const DoCreateMeasure = async function DoCreateMeasure({
       tags: tags.split(/[,;]+/)
     }
   }
+  
+  
+  if (desc.trim().startsWith("=")) {
+        measureDef.qMeasure.descriptionExpression =  {qStringExpression: {qExpr: `${desc}`}}
+    }
+	
+	
 
   let isDesktop = commonHeader.userId == 'Personal\\Me'
   let session = null
@@ -130,6 +137,7 @@ const DoCreateMeasure = async function DoCreateMeasure({
       retVal = 'Replaced';
     }
     // Persist the measure
+	 var layout = measure.getLayout();     // Call getLayout to evaluate descriptionExpression
     docprop = await doc.getAppProperties()
     if (docprop.published) {
       await measure.publish()
