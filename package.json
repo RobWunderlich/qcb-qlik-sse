@@ -23,7 +23,7 @@
     "fs": "0.0.1-security",
     "grpc": "^1.24.2",
     "ml-kmeans": "^4.2.1",
-    "nodemailer": "^6.4.8",
+    "nodemailer": "^6.4.16",
     "papaparse": "^5.2.0",
     "path": "^0.12.7",
     "pug": "^3.0.1",
