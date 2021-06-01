@@ -21,7 +21,7 @@
   "dependencies": {
     "enigma.js": "^2.7.1",
     "fs": "0.0.1-security",
-    "grpc": "^1.24.2",
+    "grpc": "^1.24.9",
     "ml-kmeans": "^4.2.1",
     "nodemailer": "^6.4.16",
     "papaparse": "^5.2.0",
